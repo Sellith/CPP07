@@ -35,16 +35,18 @@ int main ( void )
 	std::cout << CYAN << "int Res before iter : " << intRes[0] << " " << intRes[1] << " " << intRes[2] << "\n";
 	std::cout << "str Res before iter : " << strRes << "\n";
 
-	::iter(&strRes[0], strRes.size(), add_one);
-	::iter(intRes, 3, add_one);
+	::iter(&strRes[0], strRes.size(), add_one<char>);
+	::iter(intRes, 3, add_one<int>);
 
 	std::cout << WHITE << "int Res after iter : " << intRes[0] << " " << intRes[1] << " " << intRes[2] << "\n";
 	std::cout << "str Res after iter : " << strRes << RESET << std::endl;
 
-	::iter(&strRes[0], strRes.size(), min_one);
-	::iter(intRes, 3, min_one);
+	::iter(&strRes[0], strRes.size(), min_one<char>);
+	::iter(intRes, 3, min_one<int>);
 
-	std::cout << WHITE << "int Res after min : " << intRes[0] << " " << intRes[1] << " " << intRes[2] << "\n";
-	std::cout << "str Res after min : " << strRes << RESET << std::endl;
+	std::cout << YELLOW << "int Res after min : " << intRes[0] << " " << intRes[1] << " " << intRes[2] << "\n";
+	std::cout << "str Res after min : " << strRes << WHITE << std::endl;
 
+	::iter("end of ex01 !\n", 14, print<char>);
+	std::cout << RESET;
 }

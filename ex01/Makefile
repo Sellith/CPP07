@@ -35,7 +35,7 @@ D_BUILD_DIR	:=	$(BUILD_DIR)/default_build
 DEBUG_DIR	:=	$(BUILD_DIR)/debug_build
 
 
-TARGET		:=	template1
+TARGET		:=	iter
 TARGETDEBUG	:=	Debug_ScalarConvert
 NAME		:=	$(BIN_DIR)/$(TARGET)
 NAMEDEBUG	:=	$(BIN_DIR)/$(TARGETDEBUG)

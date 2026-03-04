@@ -30,6 +30,10 @@
 # include <iostream>
 
 template <typename T>
+void	print(T const & val)
+{std::cout << val;}
+
+template <typename T>
 void	min_one(T & val)
 {val--;}
 
@@ -37,8 +41,8 @@ template <typename T>
 void	add_one(T & val)
 {val++;}
 
-template <typename T>
-void	iter(T * array, int const size, void (*f)( T & ))
+template <typename T, typename F>
+void	iter(T * array, int const size, F f )
 {
 	for (int i = 0; i < size; i++)
 		f(array[i]);
