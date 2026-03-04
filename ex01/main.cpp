@@ -24,27 +24,27 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "template.tpp"
+#include "includes.hpp"
 
-int main( void ) {
-    int a = 2;
-    int b = 3;
-    std::cout << "pre swap : a = " << a << ", b = " << b << "\n";
+int main ( void )
+{
+	int			intRes[3] = { 65, 42, 69 };
 
-    ::swap( a, b );
-    std::cout << "post swap : a = " << a << ", b = " << b << "\n";
+	std::string	strRes = "Le resultat sera modifié";
 
-    std::cout << "min( a, b ) = " << ::min( a, b ) << "\n";
-    std::cout << "max( a, b ) = " << ::max( a, b ) << "\n\n";
+	std::cout << CYAN << "int Res before iter : " << intRes[0] << " " << intRes[1] << " " << intRes[2] << "\n";
+	std::cout << "str Res before iter : " << strRes << "\n";
 
-    std::string c = "chaine1";
-    std::string d = "chaine2";
-    std::cout << "pre swap : c = " << c << ", d = " << d << "\n";
+	::iter(&strRes[0], strRes.size(), add_one);
+	::iter(intRes, 3, add_one);
 
-    ::swap(c, d);
-    std::cout << "post swap : c = " << c << ", d = " << d << "\n";
-	
-    std::cout << "min( c, d ) = " << ::min( c, d ) << "\n";
-    std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-    return (0);
+	std::cout << WHITE << "int Res after iter : " << intRes[0] << " " << intRes[1] << " " << intRes[2] << "\n";
+	std::cout << "str Res after iter : " << strRes << RESET << std::endl;
+
+	::iter(&strRes[0], strRes.size(), min_one);
+	::iter(intRes, 3, min_one);
+
+	std::cout << WHITE << "int Res after min : " << intRes[0] << " " << intRes[1] << " " << intRes[2] << "\n";
+	std::cout << "str Res after min : " << strRes << RESET << std::endl;
+
 }

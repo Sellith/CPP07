@@ -1,5 +1,5 @@
 /* *************************************************************************************************************** */
-/*   main.cpp                                                                                                      */
+/*   iter.tpp                                                                                                      */
 /*   By: lvan-bre                                                                   .,                             */
 /*                                                                                 okxl                            */
 /*                                                                                xkddo                            */
@@ -24,27 +24,24 @@
 /*                                                                                                                 */
 /* *************************************************************************************************************** */
 
-#include "template.tpp"
+#ifndef ITER_HPP
+# define ITER_HPP
 
-int main( void ) {
-    int a = 2;
-    int b = 3;
-    std::cout << "pre swap : a = " << a << ", b = " << b << "\n";
+# include <iostream>
 
-    ::swap( a, b );
-    std::cout << "post swap : a = " << a << ", b = " << b << "\n";
+template <typename T>
+void	min_one(T & val)
+{val--;}
 
-    std::cout << "min( a, b ) = " << ::min( a, b ) << "\n";
-    std::cout << "max( a, b ) = " << ::max( a, b ) << "\n\n";
+template <typename T>
+void	add_one(T & val)
+{val++;}
 
-    std::string c = "chaine1";
-    std::string d = "chaine2";
-    std::cout << "pre swap : c = " << c << ", d = " << d << "\n";
-
-    ::swap(c, d);
-    std::cout << "post swap : c = " << c << ", d = " << d << "\n";
-	
-    std::cout << "min( c, d ) = " << ::min( c, d ) << "\n";
-    std::cout << "max( c, d ) = " << ::max( c, d ) << std::endl;
-    return (0);
+template <typename T>
+void	iter(T * array, int const size, void (*f)( T & ))
+{
+	for (int i = 0; i < size; i++)
+		f(array[i]);
 }
+
+#endif
