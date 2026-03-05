@@ -1,0 +1,61 @@
+/* *************************************************************************************************************** */
+/*   Array.hpp                                                                                                     */
+/*   By: lvan-bre                                                                   .,                             */
+/*                                                                                 okxl                            */
+/*                                                                                xkddo                            */
+/*                                                                               kkxddo                            */
+/*                                                                              lxxddol                            */
+/*                                                                              xxdolol.                           */
+/*                                                                             :kxdddddl                 .ox,      */
+/*                                                                       ..,cdkOOkkkxdddd'      ;o.     ckkd,      */
+/*                                                               .,:coxOOOkkkkkkkxxxxxddddo:...lxdl.   ckkxd.      */
+/*                                                           ;oxOOOOkkxxkxxxxxxxxxxdddddodddxxxkkxxxdlckkxdd.      */
+/*                                                        ,oOOOkkkkxxxdddxdddddddddddddoooooodooddddooooddooc      */
+/*                                                      ;kkkkkxxxxxddoooooooooooooooooooooooooollooooooololll      */
+/*                                                     oxodddddoooooolllllllolooooollloooollllolllllloooolccl;     */
+/*                                                    'x:::cclccllllccccccccccclllclllllllllllllllll     .;;cl;    */
+/*                                                    d;c::cc:cc:::;::c:c:cccccclccc:cccclllllll,         .:cl.    */
+/*                                                      c;,;:;;::::;;::::c..,cccllcc:c;;:lloodk.                   */
+/*                                                        'ooooooooodddxxkkkOOOkOOOOOOc:cclllloo'                  */
+/*                                                           .XXXXXXXKKXXXXXXXXXXXXXXXkcccclcccllo                 */
+/*                                                                 ,KKKKKXXXXXXXXXXXXK0.  .:ccllclll;.             */
+/*                                                                                           .ccccccllc,.          */
+/*                                                                                                 :::cl:          */
+/*                                                                                                                 */
+/* *************************************************************************************************************** */
+
+#ifndef ARRAY_HPP
+# define ARRAY_HPP
+
+# include <iostream>
+
+template <typename T>
+class Array 
+{
+
+public:
+
+	Array ( void );
+	Array ( unsigned int n );
+	Array ( Array const & src );
+	~Array ( void );
+	
+	Array &		operator= ( Array const & src );
+	T & 		operator[] ( size_t index );
+	size_t		size ( void ) const;
+
+	T const &	getElements ( void ) const;
+	void		setElements ( T * elements, size_t size );
+	void		addOneElement ( T & element );
+
+private:
+
+	T *		elements_;
+	size_t	size_;
+
+};
+
+template <typename T>
+std::ostream &	operator<< ( std::ostream & o, Array<T> const & src );
+
+#endif
