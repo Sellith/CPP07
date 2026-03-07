@@ -44,7 +44,8 @@ public:
 	T & 		operator[] ( size_t index );
 	size_t		size ( void ) const;
 
-	T const &	getElements ( void ) const;
+	T *			getElements ( void ) const;
+	T &			getElementIndex ( size_t index );
 	void		setElements ( T * elements, size_t size );
 	void		addOneElement ( T & element );
 
@@ -57,5 +58,7 @@ private:
 
 template <typename T>
 std::ostream &	operator<< ( std::ostream & o, Array<T> const & src );
+
+#include "Array.tpp"
 
 #endif
