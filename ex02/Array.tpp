@@ -58,13 +58,30 @@ Array<T> &	Array<T>::operator= ( Array const & src )
 	return ( *this );
 }
 
+static std::string const getColor ( size_t index )
+{
+	switch (index % 6)
+	{
+		case 0: return (_RED);
+		case 1: return (_GREEN);
+		case 2: return (_YELLOW);
+		case 3: return (_PURPLE);
+		case 4: return (_CYAN);
+		default: return (_WHITE);
+	}
+}
+
 template <typename T>
 std::ostream & operator<< ( std::ostream & o, Array<T> const & src )
 {
-	T * tmp = src.getElements();
-	for( size_t i = 0; i < src.size(); i++)
-		o << tmp[i] << " ";
-	o << std::endl;
+	T * 	tmp = src.getElements();
+	size_t	itmp = src.size();
+	for( size_t i = 0; i < itmp; i++) {
+		o << getColor(i) << tmp[i];
+		if (i < itmp - 1)
+			o << ", ";
+	}
+	o << _WHITE << std::endl;
 	return (o);
 }
 

@@ -29,28 +29,28 @@
 
 int main ( void )
 {
-	int					elements[5] = {5, 4, 78, 35, 95};
-	std::string			strs[2] = {"this is strs's first element", "strs's second element"};
-	Array<int>			a(5);
+	int					elements[8] = {5, 4, 78, 35, 95, 932, 189, 12983};
+	std::string			strs[2] = {"this is strs's first element", "this is strs's second element"};
+	Array<int>			a(8);
 	Array<std::string>	b(2);
 
-	a.setElements(elements, 5);
+	a.setElements(elements, 8);
 	b.setElements(strs, 2);
 	std::cout << a << "A's size : " << a.size() << "\n";
 	std::cout << b << "B's size : " << b.size() << "\n";
 	try {
-		std::cout << "trying A's 3rd element : " << a[2] << "\n";
-		std::cout << "succeed" << "\n";
+		std::cout << "trying A's 3rd element : " << a[2] << " : ";
+		std::cout << _GREEN << "Succeed" << _WHITE << "\n";
 	}
 	catch (std::out_of_range &e) {
-		std::cout << e.what() << std::endl;
+		std::cout << _RED << "Failed : " << e.what() << _WHITE << std::endl;
 	}
 	try {
-		std::cout << "trying B's 3rd element : " << b[2] << "\n";
-		std::cout << "succeed" << "\n";
+		std::cout << "trying B's 3rd element : " << b[2] << " : ";
+		std::cout << _GREEN << "Succeed" << _WHITE << "\n";
 	}
 	catch (std::out_of_range &e) {
-		std::cout << "Exception : " << e.what() << std::endl;
+		std::cout << _RED << "Failed : " << e.what() << _WHITE << std::endl;
 	}
 
 }
